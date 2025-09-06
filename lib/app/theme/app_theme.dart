@@ -42,7 +42,7 @@ class AppTheme {
         centerTitle: true,
         elevation: 0,
       ),
-      cardTheme: const CardTheme(
+      cardTheme: const CardThemeData(
         elevation: 2,
         margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       ),

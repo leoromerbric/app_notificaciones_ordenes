@@ -225,7 +225,7 @@ class _ReceiptScreenState extends ConsumerState<ReceiptScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Quantity: ${quantity!.toInt()} pcs'),
+            Text('Quantity: ${quantity.toInt()} pcs'),
             Text('Batch: ${_batchController.text}'),
             Text('Quality: $_selectedQuality'),
             if (_notesController.text.isNotEmpty)

@@ -4,6 +4,9 @@ part 'work_order.g.dart';
 
 @JsonSerializable()
 class WorkOrder {
+
+  factory WorkOrder.fromJson(Map<String, dynamic> json) =>
+      _$WorkOrderFromJson(json);
   const WorkOrder({
     required this.id,
     required this.customerOrder,
@@ -29,9 +32,6 @@ class WorkOrder {
   final DateTime? actualStart;
   final DateTime? actualEnd;
   final String? description;
-
-  factory WorkOrder.fromJson(Map<String, dynamic> json) =>
-      _$WorkOrderFromJson(json);
 
   Map<String, dynamic> toJson() => _$WorkOrderToJson(this);
 

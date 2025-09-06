@@ -4,6 +4,9 @@ part 'material_movement.g.dart';
 
 @JsonSerializable()
 class MaterialMovement {
+
+  factory MaterialMovement.fromJson(Map<String, dynamic> json) =>
+      _$MaterialMovementFromJson(json);
   const MaterialMovement({
     required this.id,
     required this.materialId,
@@ -23,9 +26,6 @@ class MaterialMovement {
   final DateTime timestamp;
   final String? batchNumber;
   final String? notes;
-
-  factory MaterialMovement.fromJson(Map<String, dynamic> json) =>
-      _$MaterialMovementFromJson(json);
 
   Map<String, dynamic> toJson() => _$MaterialMovementToJson(this);
 

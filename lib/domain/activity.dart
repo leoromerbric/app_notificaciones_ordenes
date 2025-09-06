@@ -4,6 +4,9 @@ part 'activity.g.dart';
 
 @JsonSerializable()
 class Activity {
+
+  factory Activity.fromJson(Map<String, dynamic> json) =>
+      _$ActivityFromJson(json);
   const Activity({
     required this.id,
     required this.name,
@@ -21,9 +24,6 @@ class Activity {
   final DateTime? startTime;
   final DateTime? endTime;
   final String status;
-
-  factory Activity.fromJson(Map<String, dynamic> json) =>
-      _$ActivityFromJson(json);
 
   Map<String, dynamic> toJson() => _$ActivityToJson(this);
 

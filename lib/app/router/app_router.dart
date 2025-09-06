@@ -9,7 +9,7 @@ import 'package:app_notificaciones_ordenes/features/receipt/presentation/receipt
 part 'app_router.g.dart';
 
 @riverpod
-GoRouter appRouter(AppRouterRef ref) {
+GoRouter appRouter() {
   return GoRouter(
     initialLocation: '/orders',
     routes: [

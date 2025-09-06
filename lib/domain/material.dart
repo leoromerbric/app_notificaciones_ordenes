@@ -4,6 +4,9 @@ part 'material.g.dart';
 
 @JsonSerializable()
 class Material {
+
+  factory Material.fromJson(Map<String, dynamic> json) =>
+      _$MaterialFromJson(json);
   const Material({
     required this.id,
     required this.code,
@@ -25,9 +28,6 @@ class Material {
   final DateTime? expirationDate;
 
   double get netAvailableQuantity => availableQuantity - reservedQuantity;
-
-  factory Material.fromJson(Map<String, dynamic> json) =>
-      _$MaterialFromJson(json);
 
   Map<String, dynamic> toJson() => _$MaterialToJson(this);
 

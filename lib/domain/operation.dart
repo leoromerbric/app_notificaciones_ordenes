@@ -5,6 +5,9 @@ part 'operation.g.dart';
 
 @JsonSerializable()
 class Operation {
+
+  factory Operation.fromJson(Map<String, dynamic> json) =>
+      _$OperationFromJson(json);
   const Operation({
     required this.id,
     required this.workOrderId,
@@ -32,9 +35,6 @@ class Operation {
   final int reprocessQuantity;
 
   int get totalQuantity => goodQuantity + rejectQuantity + reprocessQuantity;
-
-  factory Operation.fromJson(Map<String, dynamic> json) =>
-      _$OperationFromJson(json);
 
   Map<String, dynamic> toJson() => _$OperationToJson(this);
 
