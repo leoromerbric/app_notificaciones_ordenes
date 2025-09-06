@@ -1,0 +1,15 @@
+{
+  "@@locale": "es",
+  "appTitle": "Notificaciones de Órdenes",
+  "@appTitle": {
+    "description": "El título de la aplicación"
+  },
+  "hello": "Hola",
+  "@hello": {
+    "description": "Un mensaje de saludo"
+  },
+  "welcome": "Bienvenido",
+  "@welcome": {
+    "description": "Mensaje de bienvenida"
+  }
+}
