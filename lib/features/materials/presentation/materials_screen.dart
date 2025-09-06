@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Material;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:app_notificaciones_ordenes/domain/material.dart';
 import 'package:app_notificaciones_ordenes/domain/material_movement.dart';
@@ -80,9 +80,7 @@ class _MaterialsScreenState extends ConsumerState<MaterialsScreen> {
     return Container(
       height: 200,
       decoration: BoxDecoration(
-        border: Border(
-          top: BorderSide(color: Colors.grey.shade300),
-        ),
+        border: Border(top: BorderSide(color: Colors.grey.shade300)),
       ),
       child: Column(
         children: [
@@ -94,10 +92,7 @@ class _MaterialsScreenState extends ConsumerState<MaterialsScreen> {
                 const SizedBox(width: 8),
                 const Text(
                   'Recent Movements',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 const Spacer(),
                 Text('${movements.length} items'),
@@ -115,12 +110,15 @@ class _MaterialsScreenState extends ConsumerState<MaterialsScreen> {
                     movement.movementType == AppConstants.movementTypeOutput
                         ? Icons.arrow_forward
                         : Icons.arrow_back,
-                    color: movement.movementType == AppConstants.movementTypeOutput
+                    color:
+                        movement.movementType == AppConstants.movementTypeOutput
                         ? Colors.red
                         : Colors.green,
                   ),
                   title: Text(movement.materialId),
-                  subtitle: Text('${movement.quantity} ${movement.movementType}'),
+                  subtitle: Text(
+                    '${movement.quantity} ${movement.movementType}',
+                  ),
                   trailing: Text(
                     '${movement.timestamp.hour}:${movement.timestamp.minute.toString().padLeft(2, '0')}',
                   ),
@@ -139,7 +137,8 @@ class _MaterialsScreenState extends ConsumerState<MaterialsScreen> {
         content: Text(
           '${movement.movementType} recorded: ${movement.quantity} units',
         ),
-        backgroundColor: movement.movementType == AppConstants.movementTypeOutput
+        backgroundColor:
+            movement.movementType == AppConstants.movementTypeOutput
             ? Colors.orange
             : Colors.green,
       ),
@@ -154,10 +153,7 @@ class _MaterialsScreenState extends ConsumerState<MaterialsScreen> {
 }
 
 class _MaterialCard extends StatelessWidget {
-  const _MaterialCard({
-    required this.material,
-    required this.onMovement,
-  });
+  const _MaterialCard({required this.material, required this.onMovement});
 
   final Material material;
   final Function(MaterialMovement) onMovement;
@@ -181,7 +177,9 @@ class _MaterialCard extends StatelessWidget {
             const SizedBox(height: 4),
             Row(
               children: [
-                Text('Available: ${material.netAvailableQuantity} ${material.unit}'),
+                Text(
+                  'Available: ${material.netAvailableQuantity} ${material.unit}',
+                ),
                 if (material.batchNumber != null) ...[
                   const SizedBox(width: 16),
                   Text('Batch: ${material.batchNumber}'),
@@ -276,13 +274,7 @@ class _MaterialCard extends StatelessWidget {
               color: color,
             ),
           ),
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 12,
-              color: color,
-            ),
-          ),
+          Text(label, style: TextStyle(fontSize: 12, color: color)),
         ],
       ),
     );
@@ -335,7 +327,9 @@ class _MaterialCard extends StatelessWidget {
                   quantity: quantity,
                   timestamp: DateTime.now(),
                   batchNumber: material.batchNumber,
-                  notes: notesController.text.isEmpty ? null : notesController.text,
+                  notes: notesController.text.isEmpty
+                      ? null
+                      : notesController.text,
                 );
                 onMovement(movement);
                 Navigator.of(context).pop();
