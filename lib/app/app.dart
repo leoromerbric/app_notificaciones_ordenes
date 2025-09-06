@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:app_notificaciones_ordenes/app/router/app_router.dart';
 import 'package:app_notificaciones_ordenes/app/theme/app_theme.dart';
+import 'package:app_notificaciones_ordenes/l10n/app_localizations.dart';
 
 class ProductionManagementApp extends ConsumerWidget {
   const ProductionManagementApp({super.key});
@@ -15,6 +16,8 @@ class ProductionManagementApp extends ConsumerWidget {
       theme: AppTheme.lightTheme,
       routerConfig: router,
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }

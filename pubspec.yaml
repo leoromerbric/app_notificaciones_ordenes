@@ -12,6 +12,11 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Internationalization support
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+
   # State Management
   flutter_riverpod: ^3.0.0-dev.17
   riverpod_annotation: ^3.0.0-dev.17
